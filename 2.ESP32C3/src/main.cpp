@@ -14,6 +14,7 @@ void setup()
   Serial.begin(115200);
   ConnectWifi();
   vTaskDelay(500);
+  
   xTaskCreate(Video, "", 1024 * 2, NULL, 1, &taskHandle);
 
   int waterMark = uxTaskGetStackHighWaterMark(taskHandle);

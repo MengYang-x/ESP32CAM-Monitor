@@ -44,15 +44,15 @@ void Video(void *pt)
             uint16_t w = 0, h = 0; // Get the width and height in pixels of the jpeg if you wish
             TJpgDec.getJpgSize(&w, &h, (const uint8_t *)msg.c_str(), msg.length());
             Serial.print("Width = ");
-            Serial.print(w);
+            Serial.print(w); // 320
             Serial.print(", height = ");
-            Serial.println(h);
+            Serial.println(h); // 240
 
             TJpgDec.drawJpg(0, 0, (const uint8_t *)msg.c_str(), msg.length()); // Draw the image, top left at 0,0
 
             // How much time did rendering take (ESP8266 80MHz 271ms, 160MHz 157ms, ESP32 SPI 120ms, 8bit parallel 105ms
             t = millis() - t;
-            Serial.print(t);
+            Serial.print(t); // 132
             Serial.println(" ms");
         }
     }
